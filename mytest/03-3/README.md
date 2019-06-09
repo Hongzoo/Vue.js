@@ -10,10 +10,24 @@
 
 ## 컴포넌트 간 데이터 전달 방법
 ### 상위(부모) 컴포넌트에서 하위(자식) 컴포넌트로 데이터 전달
-<iframe height="265" style="width: 100%;" scrolling="no" title="props 속성을 사용한 데이터 전달 (상위 컴포넌트에서 하위 컴포넌트로)" src="//codepen.io/hongzoo/embed/eaKVXm/?height=265&theme-id=dark&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/hongzoo/pen/eaKVXm/'>props 속성을 사용한 데이터 전달 (상위 컴포넌트에서 하위 컴포넌트로)</a> by hong
-  (<a href='https://codepen.io/hongzoo'>@hongzoo</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<div class="codepen" data-height="317" data-theme-id="dark" data-default-tab="js,result" data-user="hongzoo" data-slug-hash="eaKVXm" data-prefill='{"title":"props 속성을 사용한 데이터 전달 (상위 컴포넌트에서 하위 컴포넌트로)","tags":[],"stylesheets":[],"scripts":["https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"]}'>
+  <pre data-lang="html">&lt;div id="app">
+  &lt;child-component v-bind:propsdata="message">&lt;/child-component>
+&lt;/div></pre>
+  <pre data-lang="js">
+Vue.component('child-component', {
+  props: ['propsdata'],
+  template: '&lt;p>{{ propsdata }}&lt;/p>'
+});
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: '안녕 Vue! 상위 컴포넌트에서 온 메시지야'
+  }
+});
+</pre>
+</div>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ### 하위(자식) 컴포넌트에서 상위(부모) 컴포넌트로 이벤트 전달
 
